@@ -37,12 +37,17 @@ pub struct VaultConfig{
     pub website: String, // site url
 }
 
-pub struct Reference {
+pub struct Reference { 
+    // bibtex fields
     pub entry_type: String, 
+    pub title: String,
     pub author: Option<String>,
-    pub title: Option<String>,
     pub year: Option<String>,
-    // maybe more bibtex fields later
+    pub month: Option<String>,
+    pub journal: Option<String>,
+    pub publisher: Option<String>,
+    pub school: Option<String>,
+    pub address: Option<String>,
 }
 
 pub struct VaultIndex {
