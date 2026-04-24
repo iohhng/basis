@@ -1,8 +1,8 @@
-use serde::{Deserialize, Serialize}
-use std::collections::{HashMap, HashSet}
-use chrono::{DateTime, Utc}
+use serde::{Deserialize, Serialize};
+use std::collections::{HashMap, HashSet};
+use chrono::{DateTime, Utc};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub enum Status {Draft, Complete}
 pub enum AtomType {Definition, Theorem, Lemma, Proposition, Corollary, Example, Exercise}
 
