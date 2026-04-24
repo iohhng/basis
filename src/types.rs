@@ -49,7 +49,7 @@ pub struct VaultIndex {
     pub cites: HashMap<String, HashSet<String>>,
     pub includes: HashMap<String, Vec<String>>,
     pub parent: HashMap<String, String>,
-    pub canonical: HashMap<String, String,
+    pub canonical: HashMap<String, String>>,
     pub sources: HashMap<String, HashSet>>,
     pub dependents: HashMap<String, HashSet<String>>, // for incremental builds
 }
