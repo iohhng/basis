@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize}
 use std::collections::{HashMap, HashSet}
 use chrono::{DateTime, Utc}
 
+#[derive(Serialize)]
 pub enum Status {Draft, Complete}
 pub enum AtomType {Definition, Theorem, Lemma, Proposition, Corollary, Example, Exercise}
 
