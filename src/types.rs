@@ -46,6 +46,9 @@ pub struct Reference {
     pub month: Option<String>,
     pub journal: Option<String>,
     pub publisher: Option<String>,
+    pub series: Option<String>,
+    pub isbn: Option<String>,
+    pub url: Option<String>,
     pub school: Option<String>,
     pub address: Option<String>,
 }
