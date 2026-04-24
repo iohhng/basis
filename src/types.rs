@@ -1,3 +1,7 @@
+use std::collections::{HashMap, HashSet}
+use chrono::{DateTime, Utc}
+
+pub enum Status {Draft, Complete}
 pub enum AtomType {Definition, Theorem, Lemma, Proposition, Corollary, Example, Exercise}
 
 pub struct AtomMeta {
@@ -37,10 +41,27 @@ pub struct VaultConfig{
     pub website: String, // site url
 }
 
+
+pub struct Vault {
+    pub config: VaultConfig,
+    pub atoms: HashMap<String, Atom>,
+    pub composites: HashMap<String, Composite>,
+    pub references: HashMap<String, Reference>,
+}
+
+pub struct VaultIndex {
+    pub cites: HashMap<String, HashSet<String>>,
+    pub includes: HashMap<String, Vec<String>>,
+    pub parent: HashMap<String, String>,
+    pub canonical: HashMap<String, String>,
+    pub sources: HashMap<String, HashSet<String>>,
+    pub dependents: HashMap<String, HashSet<String>>, // for incremental builds
+}
+
 pub struct Reference { 
     // bibtex fields
     pub entry_type: String, 
-    pub title: String,
+    pub title: Option<String>,
     pub author: Option<String>,
     pub year: Option<String>,
     pub month: Option<String>,
@@ -53,11 +74,3 @@ pub struct Reference {
     pub address: Option<String>,
 }
 
-pub struct VaultIndex {
-    pub cites: HashMap<String, HashSet<String>>,
-    pub includes: HashMap<String, Vec<String>>,
-    pub parent: HashMap<String, String>,
-    pub canonical: HashMap<String, String>>,
-    pub sources: HashMap<String, HashSet>>,
-    pub dependents: HashMap<String, HashSet<String>>, // for incremental builds
-}
