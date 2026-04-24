@@ -36,11 +36,26 @@ pub struct Composite {
     pub body: String,
 }
 
+pub struct Reference { 
+    // bibtex fields
+    pub entry_type: String, 
+    pub title: Option<String>,
+    pub author: Option<String>,
+    pub year: Option<String>,
+    pub month: Option<String>,
+    pub journal: Option<String>,
+    pub publisher: Option<String>,
+    pub series: Option<String>,
+    pub isbn: Option<String>,
+    pub url: Option<String>,
+    pub school: Option<String>,
+    pub address: Option<String>,
+}
+
 pub struct VaultConfig{
     pub next_id: String, // shared for atoms and composites
     pub website: String, // site url
 }
-
 
 pub struct Vault {
     pub config: VaultConfig,
@@ -58,19 +73,4 @@ pub struct VaultIndex {
     pub dependents: HashMap<String, HashSet<String>>, // for incremental builds
 }
 
-pub struct Reference { 
-    // bibtex fields
-    pub entry_type: String, 
-    pub title: Option<String>,
-    pub author: Option<String>,
-    pub year: Option<String>,
-    pub month: Option<String>,
-    pub journal: Option<String>,
-    pub publisher: Option<String>,
-    pub series: Option<String>,
-    pub isbn: Option<String>,
-    pub url: Option<String>,
-    pub school: Option<String>,
-    pub address: Option<String>,
-}
 
