@@ -1,9 +1,11 @@
+use serde::{Deserialize, Serialize}
 use std::collections::{HashMap, HashSet}
 use chrono::{DateTime, Utc}
 
 pub enum Status {Draft, Complete}
 pub enum AtomType {Definition, Theorem, Lemma, Proposition, Corollary, Example, Exercise}
 
+#[derive(Serialize, Deserialize)]
 pub struct AtomMeta {
     pub id: String, 
     pub slug: String,
@@ -21,6 +23,7 @@ pub struct Atom {
     pub body: String, // raw typst with frontmatter removed
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct CompositeMeta {
     pub id: String,
     pub slug: String,
@@ -52,6 +55,7 @@ pub struct Reference {
     pub address: Option<String>,
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct VaultConfig{
     pub next_id: String, // shared for atoms and composites
     pub website: String, // site url
